@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ServiceListPage.css';
+import { Link } from 'react-router-dom';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 
-class ServiceListPage extends Component {
-  render(props) {
+function ServiceListPage({ servicesFromParent }) {
   return (
     <>
-      <h1>List</h1>
-      {this.props.ListOfServices.map(service => 
-      <p>{service.service}</p>
+      <div className='ServiceListPage-grid'>
+        {servicesFromParent.map(service =>
+          <ServiceCard
+          key={service._id}
+          serviceFromParent={service}
+          />
         )}
+      </div>
     </>
   );
 }
-}
-
 export default ServiceListPage;
