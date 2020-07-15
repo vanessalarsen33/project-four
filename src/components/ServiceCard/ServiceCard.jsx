@@ -7,6 +7,7 @@ function ServiceCard({ serviceFromParent }) {
         <div className="panel-heading">
           <h3 className='panel-title'>{serviceFromParent.type}</h3>
         </div>
+      <Link>
         <div className='panel-body'>
           <dl>
             <dt>Cost</dt>
@@ -15,8 +16,9 @@ function ServiceCard({ serviceFromParent }) {
             <dd>{serviceFromParent.time}</dd>
           </dl>
         </div>
+      </Link>
     </div>
   )
-  }
+}
 
 export default ServiceCard;
