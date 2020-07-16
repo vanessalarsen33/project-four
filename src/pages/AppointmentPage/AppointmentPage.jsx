@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import './AppointmentForm.css';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -45,7 +46,7 @@ export default function DateAndTimePickers() {
   };
 
   return (
-    <form>
+    <form className="appointmentForm">
       <h3>DATE</h3>
       <TextField 
         id="datetime-local"
@@ -70,6 +71,9 @@ export default function DateAndTimePickers() {
           </MenuItem>
           <MenuItem value={10}>Massage</MenuItem>
           <MenuItem value={20}>Hair cut</MenuItem>
+          <MenuItem value={30}>Facial</MenuItem>
+          <MenuItem value={30}>Pedicure</MenuItem>
+          <MenuItem value={30}>Manicure</MenuItem>
           <MenuItem value={30}>Facial</MenuItem>
         </Select>
         <h3>NOTES:</h3>

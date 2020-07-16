@@ -6,6 +6,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import CreateAppointment from '../AppointmentPage/AppointmentPage';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
+import './App.css';
 
 import ReactTypingEffect from 'react-typing-effect';
 

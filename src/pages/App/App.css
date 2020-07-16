@@ -6,6 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+body {
+  background-color: #F2E5D6;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -37,5 +40,5 @@
   }
 }
 body {
-  background-color: blanchedalmond;
+  background-color: #F2E5D6;
 }
