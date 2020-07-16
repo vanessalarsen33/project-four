@@ -1,0 +1,13 @@
+.LoginPage {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  background-color: #557050;
+}
+
+.form-control {
+  background-color: #758B71;
+  border: none;
+}

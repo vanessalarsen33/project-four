@@ -5,6 +5,8 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import CreateAppointment from '../AppointmentPage/AppointmentPage';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+
 import ReactTypingEffect from 'react-typing-effect';
 
 class App extends Component {
@@ -54,8 +56,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-          <header className="App-header">
-            <nav>
+            <BottomNavigation className="navbar">
               {userService.getUser() ?
                 <>
                   {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}
@@ -63,7 +64,7 @@ class App extends Component {
             <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>                &nbsp;&nbsp;&nbsp;
                 <NavLink exact to='/services'>SERVICE LIST</NavLink>
                 &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/appointment'>SCHEDULE APPOINTMENT</NavLink>
+                <NavLink exact to='/appointment'>MAKE AN APPOINTMENT</NavLink>
                 &nbsp;&nbsp;&nbsp;
                 <NavLink exact to='/profile'>PROFILE</NavLink>
                 </>
@@ -75,13 +76,13 @@ class App extends Component {
                 &nbsp;&nbsp;&nbsp;
             </>
               }
-            </nav>
-          </header>
+            </BottomNavigation>
           <main>
             <Switch>
               <Route exact path='/signup' render={({ history }) =>
                 <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
-              } />
+              } 
+              />
               <Route exact path='/login' render={({ history }) =>
                 <LoginPage
                   history={history}

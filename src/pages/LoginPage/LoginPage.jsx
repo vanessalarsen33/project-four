@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import {Helmet} from "react-helmet";
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import './LoginPage.css';
+
 
 class LoginPage extends Component {
-  
+
   state = {
     email: '',
     pw: ''
@@ -28,11 +31,16 @@ class LoginPage extends Component {
       // Use a modal or toast in your apps instead of alert
       alert('Invalid Credentials!');
     }
-  }
+  };
+
+
 
   render() {
     return (
       <div className="LoginPage">
+        <Helmet>
+          <style>{'body { background-color: #557050; }'}</style>
+        </Helmet>
         <header className="header-footer">Log In</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
