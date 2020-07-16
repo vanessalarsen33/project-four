@@ -5,7 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import CreateAppointment from '../AppointmentPage/AppointmentPage';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
+import Profile from '../Profile/Profile';
 import './App.css';
 
 import ReactTypingEffect from 'react-typing-effect';
@@ -56,11 +56,11 @@ class App extends Component {
 
   render() {
     return (
-        <div className="App">
-            <BottomNavigation className="navbar">
-              {userService.getUser() ?
-                <>
-                  {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}
+      <div className="App">
+        <nav className="navbar">
+          {userService.getUser() ?
+            <>
+              {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}
             &nbsp;&nbsp;&nbsp;
             <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>                &nbsp;&nbsp;&nbsp;
                 <NavLink exact to='/services'>SERVICE LIST</NavLink>
@@ -68,45 +68,52 @@ class App extends Component {
                 <NavLink exact to='/appointment'>MAKE AN APPOINTMENT</NavLink>
                 &nbsp;&nbsp;&nbsp;
                 <NavLink exact to='/profile'>PROFILE</NavLink>
-                </>
-                :
-                <>
-                  <NavLink exact to='/signup'>SIGNUP</NavLink>
+            </>
+            :
+            <>
+              <NavLink exact to='/signup'>SIGNUP</NavLink>
                 &nbsp;&nbsp;&nbsp;
                 <NavLink exact to='/login'>LOGIN</NavLink>
                 &nbsp;&nbsp;&nbsp;
             </>
-              }
-            </BottomNavigation>
-          <main>
-            <Switch>
-              <Route exact path='/signup' render={({ history }) =>
-                <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
-              } 
+          }
+        </nav>
+        <main>
+          <Switch>
+            <Route exact path='/signup' render={({ history }) =>
+              <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
+            }
+            />
+            <Route exact path='/login' render={({ history }) =>
+              <LoginPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
               />
-              <Route exact path='/login' render={({ history }) =>
-                <LoginPage
-                  history={history}
-                  handleSignupOrLogin={this.handleSignupOrLogin}
-                />
-              } />
-              <Route exact path='/services' render={({ history }) =>
-                <ServiceListPage servicesFromParent={this.state.services} />
-              } />
-               <Route exact path='/appointment' render={() =>
+            } />
+
+            <Route exact path='/services' render={({ history }) =>
+              <ServiceListPage servicesFromParent={this.state.services} />
+            } />
+            <Route exact path='/appointment' render={({ history }) =>
               userService.getUser() ?
                 <CreateAppointment handleAddAppointment={this.handleAddAppointment} />
                 :
                 <Redirect to='/login' />
             } />
-            </Switch>
-            <div>
-            </div>
-          </main>
-        </div>
-      );
-    }
+            <Route exact path='/profile' render={({ history }) =>
+              userService.getUser() ?
+                <Profile userAppointments={this.handleAddAppointment} />
+                :
+                <Redirect to='/login' />
+            } />
+          </Switch>
+          <div>
+          </div>
+        </main>
+      </div>
+    );
   }
+}
 
 
-  export default App;
+export default App;
