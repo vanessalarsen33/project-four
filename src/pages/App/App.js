@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch, NavLink, Redirect } from 'react-router-dom';
 import ServiceListPage from '../ServiceListPage/ServiceListPage';
+import * as appointmentService from '../../utils/appointmentService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
-import CreateAppointment from '../AppointmentPage/AppointmentPage';
+import AppointmentPage from '../AppointmentPage/AppointmentPage';
 import Profile from '../Profile/Profile';
 import './App.css';
 
-import ReactTypingEffect from 'react-typing-effect';
 
 class App extends Component {
   state = {
@@ -37,8 +37,14 @@ class App extends Component {
         cost: '$50',
         time: '60 mins'
       },
+    ],
+    user: userService.getUser(),
+
+    appointments: [
+
     ]
   }
+
   handleLogout = () => {
     userService.logout();
     this.setState({
@@ -51,11 +57,20 @@ class App extends Component {
   }
 
   handleAddAppointment = async newAppointmentData => {
-    newAppointmentData._id = this.state.appointment.length + 1;
+    await appointmentService.createAppointment(newAppointmentData)
     this.setState({
-        appointment: [...this.state.appointment, newAppointmentData]
-  })
-}
+      appointment: [...this.state.appointment, newAppointmentData]
+    })
+  }
+
+  async getAllAppointments() {
+    const allAppointments = await appointmentService.getAllAppointments()
+    this.setState({
+      appointments: allAppointments
+    }, () => this.history.push('/profile')
+    )
+  }
+
 
   render() {
     return (
@@ -64,20 +79,23 @@ class App extends Component {
           {userService.getUser() ?
             <>
               {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}
-            &nbsp;&nbsp;&nbsp;
-            <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>                &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/services'>SERVICE LIST</NavLink>
-                &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/appointment'>MAKE AN APPOINTMENT</NavLink>
-                &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/profile'>PROFILE</NavLink>
+  &nbsp;&nbsp;&nbsp;
+  <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>                &nbsp;&nbsp;&nbsp;
+      <NavLink exact to='/services'>SERVICE LIST</NavLink>
+      &nbsp;&nbsp;&nbsp;
+      <NavLink exact to='/appointment'>MAKE AN APPOINTMENT</NavLink>
+      &nbsp;&nbsp;&nbsp;
+      <NavLink exact to='/profile'>PROFILE</NavLink>
+      &nbsp;&nbsp;&nbsp;
+      <NavLink exact to='/home'>HOME</NavLink>
             </>
             :
             <>
               <NavLink exact to='/signup'>SIGNUP</NavLink>
-                &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/login'>LOGIN</NavLink>
-                &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;
+      <NavLink exact to='/login'>LOGIN</NavLink>
+      &nbsp;&nbsp;&nbsp;
+      <NavLink exact to='/home'>HOME</NavLink>
             </>
           }
         </nav>
@@ -99,13 +117,13 @@ class App extends Component {
             } />
             <Route exact path='/appointment' render={({ history }) =>
               userService.getUser() ?
-                <CreateAppointment handleAddAppointment={this.handleAddAppointment} />
+                <AppointmentPage handleAddAppointment={this.handleAddAppointment} />
                 :
                 <Redirect to='/login' />
             } />
             <Route exact path='/profile' render={({ history }) =>
               userService.getUser() ?
-                <Profile userAppointments={this.handleAddAppointment} />
+                <Profile appointmentsFromParent={this.state.appointments} />
                 :
                 <Redirect to='/login' />
             } />

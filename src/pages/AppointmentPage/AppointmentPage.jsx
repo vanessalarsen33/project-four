@@ -2,35 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import './AppointmentForm.css';
-
-// class AddAppointmentPage extends Component {
-//   state = {
-//     formData: {
-//       date: '',
-//       service: '',
-//       notes: ''
-//     }
-//   }
-
-//   handleChange = e => {
-//     const formDataAsUserTypes = {
-//       ...this.state.formData,
-//       [e.target.name]: e.target.value
-//     }
-
-//     this.setState({
-//       formData: formDataAsUserTypes
-//     })
-//   }
-
-//   handleSubmit = e => {
-//     e.preventDefault();
-//     this.props.handleAddAppointent(this.state.formData);
-//   };
 
   const useStyles = makeStyles((theme) => ({
     container: {
@@ -52,14 +26,13 @@ import './AppointmentForm.css';
     },
   }));
 
-export default function DateAndTimePickers() {
+export default function DateAndTimePickers(props) {
   const classes = useStyles();
   const [service, setService] = React.useState('');
   const [formData, setFormData] = React.useState({date: '', service: '', notes: ''});
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    // setService(event.target.value);
     setFormData({
       ...formData,
       [event.target.name]: event.target.value
@@ -76,8 +49,10 @@ export default function DateAndTimePickers() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    props.handleAddAppointment(formData)
   }
 
+  
   return (
     <form onSubmit={handleSubmit} className="appointmentForm">
       <h3>DATE</h3>

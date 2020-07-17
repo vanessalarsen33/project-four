@@ -24,27 +24,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ServiceCard({ serviceFromParent }) {
+function AppointmentCard({ appointmentFromParent }) {
   const classes = useStyles();
 
   return (
       <Grid item xs={12} sm={6}>
     <Card className={classes.root} variant="outlined">
             <CardContent>
-          <h3>{serviceFromParent.type}</h3>
+          <h3>{appointmentFromParent.type}</h3>
           <dl>
             <dt className={classes.title} color="textSecondary" gutterBottom>Cost</dt>
-            <dd>{serviceFromParent.cost}</dd>
+            <dd>{appointmentFromParent.cost}</dd>
             <dt>Time</dt>
-            <dd>{serviceFromParent.time}</dd>
+            <dd>{appointmentFromParent.time}</dd>
           </dl>
           </CardContent>
           <CardActions>
-        <Button size="small">Book</Button>
+        <Button size="small">Cancel</Button>
       </CardActions>
     </Card>
     </Grid>
   )
 }
 
-export default ServiceCard;
+export default AppointmentCard;
