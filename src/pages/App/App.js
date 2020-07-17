@@ -51,8 +51,11 @@ class App extends Component {
   }
 
   handleAddAppointment = async newAppointmentData => {
-    this.getAllAppointments();
-  }
+    newAppointmentData._id = this.state.appointment.length + 1;
+    this.setState({
+        appointment: [...this.state.appointment, newAppointmentData]
+  })
+}
 
   render() {
     return (

@@ -75,12 +75,11 @@ export default function DateAndTimePickers() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    //create function in app js pass function down. pass it formData.
+    event.preventDefault();
   }
 
   return (
-    <form className="appointmentForm">
+    <form onSubmit={handleSubmit} className="appointmentForm">
       <h3>DATE</h3>
       <TextField
         id="datetime-local"
