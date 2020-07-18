@@ -9,6 +9,8 @@ require('dotenv').config();
 require('./config/database');
 
 const usersRoutes = require('./routes/api/users');
+const appointmentRoutes = require('./routes/appointments');
+// const profileRoutes = require('./routes/appointments');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,6 +21,8 @@ app.use(express.json());
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', usersRoutes);
+app.use('/appointments', appointmentRoutes);
+// app.use('/profile', profileRoutes);
 // Load config/auth
 app.use(require('./config/auth'));
 

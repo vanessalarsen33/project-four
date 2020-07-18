@@ -2,7 +2,7 @@ const router = require('express').Router();
 const appointmentCtrl = require('../controllers/appointments');
 
 router.get('/', checkAuth, appointmentCtrl.index);
-router.post('/', checkAuth, appointmentCtrl.create);
+router.post('/profile', checkAuth, appointmentCtrl.create);
 
 function checkAuth(req, res, next) {
     if(req.user) return next();

@@ -26,7 +26,7 @@ import './AppointmentForm.css';
     },
   }));
 
-export default function DateAndTimePickers(props) {
+export default function AddAppointmentPage(props) {
   const classes = useStyles();
   const [service, setService] = React.useState('');
   const [formData, setFormData] = React.useState({date: '', service: '', notes: ''});

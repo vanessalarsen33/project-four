@@ -1,7 +1,7 @@
 import tokenService from './tokenService';
 
-const BASE_URL = /*localhost:3001*/'/api/appointments';
-
+const BASE_URL = /*localhost:3001*/'/appointment';
+const PROFILE_URL = '/profile';
 // index
 export function getAllAppointments() {
   return fetch(BASE_URL, {
@@ -14,7 +14,7 @@ export function getAllAppointments() {
 
 // create
 export function createAppointment(appointmentToCreate) {
-    return fetch(BASE_URL, {
+    return fetch(PROFILE_URL, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',

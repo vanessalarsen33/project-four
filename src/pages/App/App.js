@@ -5,7 +5,7 @@ import * as appointmentService from '../../utils/appointmentService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
-import AppointmentPage from '../AppointmentPage/AppointmentPage';
+import AddAppointmentPage from '../AppointmentPage/AppointmentPage';
 import Profile from '../Profile/Profile';
 import './App.css';
 
@@ -40,8 +40,10 @@ class App extends Component {
     ],
     user: userService.getUser(),
 
-    appointments: [
-
+    appointments: [{
+      type: '',
+      date: '',
+    }
     ]
   }
 
@@ -59,7 +61,7 @@ class App extends Component {
   handleAddAppointment = async newAppointmentData => {
     await appointmentService.createAppointment(newAppointmentData)
     this.setState({
-      appointment: [...this.state.appointment, newAppointmentData]
+      appointments: [...this.state.appointments, newAppointmentData]
     })
   }
 
@@ -117,7 +119,7 @@ class App extends Component {
             } />
             <Route exact path='/appointment' render={({ history }) =>
               userService.getUser() ?
-                <AppointmentPage handleAddAppointment={this.handleAddAppointment} />
+                <AddAppointmentPage handleAddAppointment={this.handleAddAppointment} />
                 :
                 <Redirect to='/login' />
             } />
