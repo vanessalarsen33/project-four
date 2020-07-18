@@ -19,6 +19,8 @@ async function index(req, res) {
 
 // create
 async function create(req, res) {
+  console.log('CONTROLLER')
+  console.log(req.user)
   req.body.user = req.user._id;
   try{
       const appointment = await Appointment.create(req.body);

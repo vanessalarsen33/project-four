@@ -9,7 +9,7 @@ require('dotenv').config();
 require('./config/database');
 
 const usersRoutes = require('./routes/api/users');
-const appointmentRoutes = require('./routes/appointments');
+const appointmentRoutes = require('./routes/api/appointments');
 // const profileRoutes = require('./routes/appointments');
 
 app.use(logger('dev'));

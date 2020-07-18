@@ -40,10 +40,7 @@ class App extends Component {
     ],
     user: userService.getUser(),
 
-    appointments: [{
-      type: '',
-      date: '',
-    }
+    appointments: [
     ]
   }
 
@@ -69,8 +66,11 @@ class App extends Component {
     const allAppointments = await appointmentService.getAllAppointments()
     this.setState({
       appointments: allAppointments
-    }, () => this.history.push('/profile')
+    }
     )
+  }
+  async componentDidMount() {
+    this.getAllAppointments();
   }
 
 
@@ -81,23 +81,24 @@ class App extends Component {
           {userService.getUser() ?
             <>
               {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}
-  &nbsp;&nbsp;&nbsp;
-  <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>                &nbsp;&nbsp;&nbsp;
-      <NavLink exact to='/services'>SERVICE LIST</NavLink>
-      &nbsp;&nbsp;&nbsp;
-      <NavLink exact to='/appointment'>MAKE AN APPOINTMENT</NavLink>
-      &nbsp;&nbsp;&nbsp;
-      <NavLink exact to='/profile'>PROFILE</NavLink>
-      &nbsp;&nbsp;&nbsp;
-      <NavLink exact to='/home'>HOME</NavLink>
+              &nbsp;&nbsp;&nbsp;
+              <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>
+              &nbsp;&nbsp;&nbsp;
+              <NavLink exact to='/services'>SERVICE LIST</NavLink>
+              &nbsp;&nbsp;&nbsp;
+              <NavLink exact to='/appointment'>MAKE AN APPOINTMENT</NavLink>
+              &nbsp;&nbsp;&nbsp;
+              <NavLink exact to='/profile'>PROFILE</NavLink>
+              &nbsp;&nbsp;&nbsp;
+              <NavLink exact to='/home'>HOME</NavLink>
             </>
             :
             <>
               <NavLink exact to='/signup'>SIGNUP</NavLink>
-      &nbsp;&nbsp;&nbsp;
-      <NavLink exact to='/login'>LOGIN</NavLink>
-      &nbsp;&nbsp;&nbsp;
-      <NavLink exact to='/home'>HOME</NavLink>
+              &nbsp;&nbsp;&nbsp;
+              <NavLink exact to='/login'>LOGIN</NavLink>
+              &nbsp;&nbsp;&nbsp;
+              <NavLink exact to='/home'>HOME</NavLink>
             </>
           }
         </nav>

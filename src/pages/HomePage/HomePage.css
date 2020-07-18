@@ -1,0 +1,11 @@
+.img-responsive {
+  width: 100%;
+  height: 30%;
+}
+
+.Image {
+  background-image: url("../../components/images/homepageimage.jpg");
+  background-size: cover;
+  height: 30vh;
+  background-position: center;
+}
