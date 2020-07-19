@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,21 +32,18 @@ function AppointmentCard({ appointmentFromParent, handleDeleteAppointment }) {
       <Grid item xs={12} sm={6}>
     <Card className={classes.root} variant="outlined">
             <CardContent>
-          <h3>{appointmentFromParent.type}</h3>
-          <dl>
-            <dt className={classes.title} color="textSecondary" gutterBottom>Cost</dt>
-            <dd>{appointmentFromParent.cost}</dd>
-            <dt>Time</dt>
-            <dd>{appointmentFromParent.time}</dd>
-          </dl>
+          <Typography>{appointmentFromParent.type}</Typography>
+            <Typography>Cost</Typography>
+            <Typography>{appointmentFromParent.cost}</Typography>
+            <Typography>Time</Typography>
+            <Typography>{appointmentFromParent.cost}</Typography>
           </CardContent>
           <CardActions>
-        <Button size="small"
+        <Button 
+        size="small"
+        variant="outlined"
         onClick={() => handleDeleteAppointment(appointmentFromParent._id)}
         >Cancel</Button>
-        <Button size="small"
-        onClick={() => handleDeleteAppointment(appointmentFromParent._id)}
-        >Edit</Button>
       </CardActions>
     </Card>
     </Grid>

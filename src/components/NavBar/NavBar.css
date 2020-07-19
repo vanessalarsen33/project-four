@@ -1,4 +1,12 @@
-.navBar {
-  color: blue;
-  
+
+.NavBar > a {
+  text-decoration: none;
+  padding: .5vh;
+  width: 20vw;
+  height: 1vh;
+  border: 1px solid;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  background-color: #758B71;
+  color: #E4CAB0;
 }

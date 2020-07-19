@@ -68,7 +68,7 @@ class App extends Component {
     const allAppointments = await appointmentService.getAllAppointments()
     this.setState({
       appointments: allAppointments
-    }
+    }, () => this.props.history.push('/profile')
     )
   }
   async componentDidMount() {
@@ -86,19 +86,12 @@ class App extends Component {
     this.getAllAppointments();
   }
 
-
-
-
   render() {
     return (
       <div className="App">
-        <header>
-          <nav className="NavBar">
             <NavBar
               handleLogout={this.handleLogout}
             />
-          </nav>
-        </header>
         <main>
           <Switch>
             <Route exact path='/home' render={({ history }) =>

@@ -1,34 +1,38 @@
 import React, { Component } from 'react';
 import userService from '../../utils/userService';
-import { BottomNavigation } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import './NavBar.css';
 
 class NavBar extends Component {
-
+  
   render() {
     return (
-      <AppBar className="navBar" position="fixed" color="primary" style={{ top: "auto", bottom: 0 }}>
-        <BottomNavigation
-        >
+      <AppBar 
+      className="NavBar" 
+      position="fixed" 
+      style={{ 
+        top: "auto", 
+        bottom: 0, 
+        backgroundColor: "#E4CAB0", 
+        display: "inline-block", 
+        height: "5%",
+        paddingTop: "1.5vh",
+    }}>
           {userService.getUser() ?
             <>
-              {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}
-              <BottomNavigationAction exact to='/logout' onClick={this.handleLogout} color="primary">LOGOUT</BottomNavigationAction>
-              <BottomNavigationAction exact to='/services'>SERVICE LIST</BottomNavigationAction>
-              <BottomNavigationAction exact to='/appointment'>MAKE AN APPOINTMENT</BottomNavigationAction>
-              <BottomNavigationAction exact to='/profile'>PROFILE</BottomNavigationAction>
-              <BottomNavigationAction exact to='/home'>HOME</BottomNavigationAction>
+              <NavLink exact to='/logout' onClick={this.handleLogout} color="primary" >LOGOUT</NavLink>
+              <NavLink exact to='/services' >SERVICES</NavLink>
+              <NavLink exact to='/profile'>PROFILE</NavLink>
+              <NavLink exact to='/home'>HOME</NavLink>
             </>
             :
             <>
-              <BottomNavigationAction exact to='/signup'>SIGNUP</BottomNavigationAction>
-              <BottomNavigationAction exact to='/login'>LOGIN</BottomNavigationAction>
-              <BottomNavigationAction exact to='/home'>HOME</BottomNavigationAction>
+              <NavLink exact to='/signup'>SIGNUP</NavLink>
+              <NavLink exact to='/login'>LOGIN</NavLink>
+              <NavLink exact to='/home'>HOME</NavLink>
             </>
           }
-        </BottomNavigation>
       </AppBar>
     );
   }
