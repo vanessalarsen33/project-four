@@ -5,6 +5,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import './AppointmentForm.css';
+import Typography from '@material-ui/core/Typography';
+
 
   const useStyles = makeStyles((theme) => ({
     container: {
@@ -28,7 +30,6 @@ import './AppointmentForm.css';
 
 export default function AddAppointmentPage(props) {
   const classes = useStyles();
-  const [service, setService] = React.useState('');
   const [formData, setFormData] = React.useState({date: '', service: '', notes: ''});
   const [open, setOpen] = React.useState(false);
 
@@ -55,7 +56,7 @@ export default function AddAppointmentPage(props) {
   
   return (
     <form onSubmit={handleSubmit} className="appointmentForm">
-      <h3>DATE</h3>
+      <Typography>DATE</Typography>
       <TextField
         id="datetime-local"
         type="datetime-local"
@@ -67,7 +68,7 @@ export default function AddAppointmentPage(props) {
         }}
         name="date"
       />
-      <h3>SERVICE</h3>
+      <Typography>SERVICE</Typography>
       <Select
         labelId="demo-controlled-open-select-label"
         id="demo-controlled-open-select"
@@ -86,7 +87,7 @@ export default function AddAppointmentPage(props) {
         <MenuItem value="pedicure">Pedicure</MenuItem>
         <MenuItem value="manicure">Manicure</MenuItem>
       </Select>
-      <h3>NOTES:</h3>
+      <Typography>NOTES:</Typography>
       <TextField 
         name="notes"
         value={formData.notes}
@@ -94,6 +95,7 @@ export default function AddAppointmentPage(props) {
       />
       <Button
         type="submit"
+        variant="outline"
       >
         SUBMIT</Button>
     </form>

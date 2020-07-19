@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch, NavLink, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import ServiceListPage from '../ServiceListPage/ServiceListPage';
 import * as appointmentService from '../../utils/appointmentService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import AddAppointmentPage from '../AppointmentPage/AppointmentPage';
+import HomePage from '../HomePage/HomePage';
 import Profile from '../Profile/Profile';
+import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
 
 
@@ -72,38 +74,37 @@ class App extends Component {
   async componentDidMount() {
     this.getAllAppointments();
   }
+  handleDeleteAppointment = async idOfAppointmentToDelete => {
+    await appointmentService.deleteAppointmentAPI(idOfAppointmentToDelete);
+    this.setState(state => ({
+      appointmentService: state.appointments.filter(appointment => appointment._id !== idOfAppointmentToDelete)
+    }), () => this.props.history.push('/profile'));
+  }
+
+  handleUpdateAppointment = async updatedAppointmentData => {
+    await appointmentService.updateAppointmentAPI(updatedAppointmentData);
+    this.getAllAppointments();
+  }
+
+
 
 
   render() {
     return (
       <div className="App">
-        <nav className="navbar">
-          {userService.getUser() ?
-            <>
-              {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to='/services'>SERVICE LIST</NavLink>
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to='/appointment'>MAKE AN APPOINTMENT</NavLink>
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to='/profile'>PROFILE</NavLink>
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to='/home'>HOME</NavLink>
-            </>
-            :
-            <>
-              <NavLink exact to='/signup'>SIGNUP</NavLink>
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to='/login'>LOGIN</NavLink>
-              &nbsp;&nbsp;&nbsp;
-              <NavLink exact to='/home'>HOME</NavLink>
-            </>
-          }
-        </nav>
+        <header>
+          <nav className="NavBar">
+            <NavBar
+              handleLogout={this.handleLogout}
+            />
+          </nav>
+        </header>
         <main>
           <Switch>
+            <Route exact path='/home' render={({ history }) =>
+              <HomePage />
+            }
+            />
             <Route exact path='/signup' render={({ history }) =>
               <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
             }
@@ -126,7 +127,7 @@ class App extends Component {
             } />
             <Route exact path='/profile' render={({ history }) =>
               userService.getUser() ?
-                <Profile appointmentsFromParent={this.state.appointments} />
+                <Profile appointmentsFromParent={this.state.appointments} handleDeleteAppointment={this.handleDeleteAppointment} />
                 :
                 <Redirect to='/login' />
             } />

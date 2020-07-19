@@ -5,6 +5,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,16 +33,17 @@ function ServiceCard({ serviceFromParent }) {
       <Grid item xs={12} sm={6}>
     <Card className={classes.root} variant="outlined">
             <CardContent>
-          <h3>{serviceFromParent.type}</h3>
-          <dl>
-            <dt className={classes.title} color="textSecondary" gutterBottom>Cost</dt>
-            <dd>{serviceFromParent.cost}</dd>
-            <dt>Time</dt>
-            <dd>{serviceFromParent.time}</dd>
-          </dl>
+          <Typography>{serviceFromParent.type}</Typography>
+            <Typography>Cost</Typography>
+            <Typography>{serviceFromParent.cost}</Typography>
+            <Typography>Time</Typography>
+            <Typography>{serviceFromParent.time}</Typography>
           </CardContent>
           <CardActions>
-        <Button size="small">Book</Button>
+        <Button 
+        size="small"
+        variant="outlined"
+        >Book</Button>
       </CardActions>
     </Card>
     </Grid>

@@ -1,6 +1,5 @@
 import React from 'react';
 import './ServiceListPage.css';
-import { Link } from 'react-router-dom';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 
 function ServiceListPage({ servicesFromParent }) {

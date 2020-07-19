@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ReactTypingEffect from 'react-typing-effect';
+import './HomePage.css';
+import { Typography } from '@material-ui/core';
 
 const HomePage = (props) => (
   <div className='HomePage'>
-      <h1>Welcome</h1>
-      <p>
-          here are something about the site
-      </p>
+    <div className="Image">
+      <Typography>HELLO</Typography>
+    </div>
   </div>
 )
 

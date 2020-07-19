@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AppointmentCard({ appointmentFromParent }) {
+function AppointmentCard({ appointmentFromParent, handleDeleteAppointment }) {
   const classes = useStyles();
 
   return (
@@ -40,7 +40,12 @@ function AppointmentCard({ appointmentFromParent }) {
           </dl>
           </CardContent>
           <CardActions>
-        <Button size="small">Cancel</Button>
+        <Button size="small"
+        onClick={() => handleDeleteAppointment(appointmentFromParent._id)}
+        >Cancel</Button>
+        <Button size="small"
+        onClick={() => handleDeleteAppointment(appointmentFromParent._id)}
+        >Edit</Button>
       </CardActions>
     </Card>
     </Grid>
