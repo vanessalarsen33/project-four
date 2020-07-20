@@ -2,3 +2,16 @@
   height: 15vh;
   background-color: #758B71;
 }
+
+.profileName {
+  display: flex;
+  justify-content: flex-end;
+  align-content: end;
+  padding-top: 11vh;
+  padding-right: 3vw;
+}
+.upcoming {
+  display: flex;
+  padding-top: 1vh;
+  padding-left: 3vw;
+}

@@ -18,7 +18,7 @@ class CardCarousel extends Component {
   static get CARD_STYLE() {
     return {
       height: "300px",
-      width: "220px",
+      width: "250px",
       paddingTop: "80px",
       textAlign: "center",
       background: "#557050",
@@ -34,7 +34,7 @@ class CardCarousel extends Component {
   render() {
     return (
       <div style={CardCarousel.CONTAINER_STYLE}>
-        <ReactCardCarousel autoplay={true} autoplay_speed={2500}>
+        <ReactCardCarousel autoplay={true} autoplay_speed={4000}>
           <div style={CardCarousel.CARD_STYLE}
           className="Facial"
           >Facial

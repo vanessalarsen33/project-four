@@ -29,30 +29,28 @@ function AppointmentCard({ appointmentFromParent, handleDeleteAppointment }) {
   const classes = useStyles();
 
   return (
-      <Grid item xs={12} sm={6}>
-    <Card 
-    className={classes.root}
-    variant="outlined"
-    style={{ 
-      backgroundColor: '#E4CAB0',
-      margin: '10%',
-       }}
-    >
-            <CardContent>
-          <Typography>{appointmentFromParent.type}</Typography>
-            <Typography>Cost</Typography>
-            <Typography>{appointmentFromParent.cost}</Typography>
-            <Typography>Time</Typography>
-            <Typography>{appointmentFromParent.cost}</Typography>
-          </CardContent>
-          <CardActions>
-        <Button 
-        size="small"
+    <Grid item xs={12} sm={6}>
+      <Card
+        className={classes.root}
         variant="outlined"
-        onClick={() => handleDeleteAppointment(appointmentFromParent._id)}
-        >Cancel</Button>
-      </CardActions>
-    </Card>
+        style={{
+          backgroundColor: '#E4CAB0',
+          margin: '10%',
+        }}
+      >
+        <CardContent>
+          <Typography>{appointmentFromParent.type}</Typography>
+          <Typography>{appointmentFromParent.cost}</Typography>
+          <Typography>{appointmentFromParent.cost}</Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            size="small"
+            variant="outlined"
+            onClick={() => handleDeleteAppointment(appointmentFromParent._id)}
+          >Cancel</Button>
+        </CardActions>
+      </Card>
     </Grid>
   )
 }
