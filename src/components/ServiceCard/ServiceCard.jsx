@@ -4,7 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import { NavLink } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
@@ -42,13 +41,11 @@ function ServiceCard({ serviceFromParent }) {
     >
             <CardContent>
           <Typography>{serviceFromParent.type}</Typography>
-            <Typography>Cost</Typography>
             <Typography>{serviceFromParent.cost}</Typography>
-            <Typography>Time</Typography>
             <Typography>{serviceFromParent.time}</Typography>
           </CardContent>
           <CardActions>
-              <Button exact to='/appointment' >MAKE AN APPOINTMENT</Button>
+              <NavLink exact to='/appointment' >BOOK</NavLink>
       </CardActions>
     </Card>
     </Grid>

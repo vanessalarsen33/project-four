@@ -1,3 +1,4 @@
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -14,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    color: '#758B71'
   },
   button: {
     display: 'block',
@@ -22,15 +22,13 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
-    margin: '10px',
+    minWidth: 10,
     color: '#758B71'
   },
 }));
 
 export default function AppointmentForm(props) {
   const classes = useStyles();
-  const [service, setService] = React.useState('');
   const [formData, setFormData] = React.useState({ date: '', service: '', notes: '' });
   const [open, setOpen] = React.useState(false);
 
@@ -51,54 +49,70 @@ export default function AppointmentForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleAddAppointment(formData)
+    this.props.handleAddAppointment(formData)
   }
 
-
-<form onSubmit={handleSubmit} className="appointmentForm">
-<Typography color="#758B71">When would you like to schedule your appointment?</Typography>
-<TextField
-  id="datetime-local"
-  type="datetime-local"
-  className={classes.textField}
-  value={formData.date}
-  onChange={handleChange}
-  InputLabelProps={{
-    shrink: true,
-  }}
-  name="date"
-/>
-<Typography color="#758B71">What service are your booking?</Typography>
-<Select
-  className="form1"
-  labelId="demo-controlled-open-select-label"
-  id="demo-controlled-open-select"
-  open={open}
-  onClose={handleClose}
-  onOpen={handleOpen}
-  value={formData.service}
-  onChange={handleChange}
-  name="service"
->
-  <MenuItem>
-  </MenuItem>
-  <MenuItem value="massage">Massage</MenuItem>
-  <MenuItem value="haircut">Hair cut</MenuItem>
-  <MenuItem value="facial">Facial</MenuItem>
-  <MenuItem value="pedicure">Pedicure</MenuItem>
-  <MenuItem value="manicure">Manicure</MenuItem>
-</Select>
-<Typography color="#758B71">Anything else we should know?</Typography>
-<TextField
-  name="notes"
-  value={formData.notes}
-  onChange={handleChange}
-/>
-<Button
-  type="submit"
-  variant="outlined"
->
-  SUBMIT</Button>
-</form>
-
+  return (
+    <form onSubmit={handleSubmit} className="appointmentForm">
+      <div className="formSections">
+        <Typography
+          style={{
+            color: "#758B71"
+          }}>When would you like to schedule your appointment?</Typography>
+        <TextField
+          id="datetime-local"
+          type="datetime-local"
+          className={classes.textField}
+          value={formData.date}
+          onChange={handleChange}
+          InputLabelProps={{
+            shrink: true,
+          }}
+          name="date"
+        />
+      </div>
+      <div className="formSections">
+        <Typography
+          style={{
+            color: "#758B71"
+          }}>What service are your booking?</Typography>
+        <Select
+          className="form1"
+          labelId="demo-controlled-open-select-label"
+          id="demo-controlled-open-select"
+          open={open}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          value={formData.service}
+          onChange={handleChange}
+          name="service"
+        >
+          <MenuItem>
+          </MenuItem>
+          <MenuItem value="massage">Reflexology Treatment</MenuItem>
+          <MenuItem value="stone massage">Hot Stone Therapy Massage</MenuItem>
+          <MenuItem value="haircut">Hair cut</MenuItem>
+          <MenuItem value="facial">Facial</MenuItem>
+          <MenuItem value="pedicure">Pedicure</MenuItem>
+          <MenuItem value="manicure">Manicure</MenuItem>
+        </Select>
+      </div>
+      <div className="formSections">
+        <Typography
+          style={{
+            color: "#758B71"
+          }}>Anything else we should know?</Typography>
+        <TextField
+          name="notes"
+          value={formData.notes}
+          onChange={handleChange}
+        />
+      </div>
+      <Button
+        type="submit"
+        variant="outlined"
+      >
+        SUBMIT</Button>
+    </form>
+  );
 }

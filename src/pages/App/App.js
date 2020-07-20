@@ -5,7 +5,7 @@ import * as appointmentService from '../../utils/appointmentService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
-import AddAppointmentPage from '../AppointmentPage/AppointmentPage';
+import AppointmentPage from '../AppointmentPage/AppointmentPage';
 import HomePage from '../HomePage/HomePage';
 import Profile from '../Profile/Profile';
 import NavBar from '../../components/NavBar/NavBar';
@@ -114,7 +114,7 @@ class App extends Component {
             } />
             <Route exact path='/appointment' render={({ history }) =>
               userService.getUser() ?
-                <AddAppointmentPage handleAddAppointment={this.handleAddAppointment} />
+                <AppointmentPage handleAddAppointment={this.handleAddAppointment} />
                 :
                 <Redirect to='/login' />
             } />

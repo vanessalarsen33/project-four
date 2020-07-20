@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-import './AppointmentForm.css';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -52,7 +51,6 @@ export default function AddAppointmentPage(props) {
     event.preventDefault();
     props.handleAddAppointment(formData)
   }
-
   
   return (
     <form onSubmit={handleSubmit} className="appointmentForm">

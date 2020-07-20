@@ -30,7 +30,14 @@ function AppointmentCard({ appointmentFromParent, handleDeleteAppointment }) {
 
   return (
       <Grid item xs={12} sm={6}>
-    <Card className={classes.root} variant="outlined">
+    <Card 
+    className={classes.root}
+    variant="outlined"
+    style={{ 
+      backgroundColor: '#E4CAB0',
+      margin: '10%',
+       }}
+    >
             <CardContent>
           <Typography>{appointmentFromParent.type}</Typography>
             <Typography>Cost</Typography>
