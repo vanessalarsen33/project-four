@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import userService from '../../utils/userService';
+import Typography from '@material-ui/core/Typography';
 import './LoginPage.css';
 
 
@@ -39,21 +40,17 @@ class LoginPage extends Component {
         <Helmet>
           <style>{'body { background-color: #557050; }'}</style>
         </Helmet>
-        <header className="header-footer">Log In</header>
+        <Typography className="loginTitle">Log in to schedule an appointment</Typography>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-            </div>
+            <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
           </div>
           <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
-            </div>
+            <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
           </div>
           <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
+            <div className="loginBtn">
+              <button className="loginBtn">Log In</button>
             </div>
           </div>
         </form>

@@ -3,7 +3,7 @@
   flex-flow: column nowrap;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 50px;
+  margin-top: 20vh;
   background-color: #557050;
 }
 .form-control {
@@ -15,4 +15,11 @@
 }
 .lfm__typing_effect_cursor {
   margin-top: 27vh;
+}
+.loginBtn {
+  padding-top: 2vh;
+}
+.loginTitle {
+  color: #E4CAB0;
+  padding-bottom: 2vh;
 }

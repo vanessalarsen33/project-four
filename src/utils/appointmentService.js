@@ -1,6 +1,7 @@
 import tokenService from './tokenService';
 
-const BASE_URL = /*localhost:3001*/'/appointments/';
+const BASE_URL = '/appointments/';
+
 // index
 export function getAllAppointments() {
   return fetch(BASE_URL, {
@@ -16,7 +17,7 @@ export function getAllAppointments() {
 // create
 export function createAppointment(appointmentToCreate) {
   console.log(appointmentToCreate, "APPOINTMENT OT CREATE")
-    return fetch(BASE_URL + 'create', {
+    return fetch(BASE_URL, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -27,7 +28,7 @@ export function createAppointment(appointmentToCreate) {
 }
 // delete
 export function deleteAppointmentAPI(appointmentIdToDelete) {
-    return fetch(`${BASE_URL}/${appointmentIdToDelete}`, {
+    return fetch(`${BASE_URL}${appointmentIdToDelete}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${tokenService.getTokenFromLocalStorage()}`
@@ -37,7 +38,7 @@ export function deleteAppointmentAPI(appointmentIdToDelete) {
 
 //
 export function updateAppointmentAPI(appointmentToUpdate) {
-    return fetch(`${BASE_URL}/${appointmentToUpdate._id}`, {
+    return fetch(`${BASE_URL}${appointmentToUpdate._id}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json',

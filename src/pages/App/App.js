@@ -4,6 +4,7 @@ import ServiceListPage from '../ServiceListPage/ServiceListPage';
 import * as appointmentService from '../../utils/appointmentService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+import EditAppointmentPage from '../EditAppointmentPage/EditAppointmentPage';
 import userService from '../../utils/userService';
 import AppointmentPage from '../AppointmentPage/AppointmentPage';
 import HomePage from '../HomePage/HomePage';
@@ -50,26 +51,26 @@ class App extends Component {
     userService.logout();
     this.setState({
       user: null
-    }, () => this.props.history.push('/'));
+    });
   }
 
   handleSignupOrLogin = () => {
-    this.setState();
-  }
+    this.setState({user: userService.getUser()});
+    }
 
   handleAddAppointment = async newAppointmentData => {
     await appointmentService.createAppointment(newAppointmentData)
     this.setState({
       appointments: [...this.state.appointments, newAppointmentData]
-    })
+    }, () => this.props.history.push('/profile')
+    )
   }
 
   async getAllAppointments() {
     const allAppointments = await appointmentService.getAllAppointments()
     this.setState({
       appointments: allAppointments
-    }, () => this.props.history.push('/profile')
-    )
+    }, () => this.props.history.push('/profile'));
   }
   async componentDidMount() {
     this.getAllAppointments();
@@ -89,9 +90,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-            <NavBar
-              handleLogout={this.handleLogout}
-            />
+        <NavBar
+          user={this.state.user}
+          handleLogout={this.handleLogout}
+        />
         <main>
           <Switch>
             <Route exact path='/home' render={({ history }) =>
@@ -121,6 +123,12 @@ class App extends Component {
             <Route exact path='/profile' render={({ history }) =>
               userService.getUser() ?
                 <Profile appointmentsFromParent={this.state.appointments} handleDeleteAppointment={this.handleDeleteAppointment} />
+                :
+                <Redirect to='/login' />
+            } />
+             <Route exact path='/edit' render={({ history, location }) =>
+              userService.getUser() ?
+                <EditAppointmentPage handleUpdateAppointment={this.handleUpdateAppointment} location={location} />
                 :
                 <Redirect to='/login' />
             } />

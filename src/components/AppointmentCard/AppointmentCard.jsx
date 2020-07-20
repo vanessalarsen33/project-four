@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,16 +40,16 @@ function AppointmentCard({ appointmentFromParent, handleDeleteAppointment }) {
         }}
       >
         <CardContent>
-          <Typography>{appointmentFromParent.type}</Typography>
-          <Typography>{appointmentFromParent.cost}</Typography>
-          <Typography>{appointmentFromParent.cost}</Typography>
+          <Typography>{appointmentFromParent.date}</Typography>
+          <Typography>{appointmentFromParent.service}</Typography>
         </CardContent>
         <CardActions>
-          <Button
+          <button
             size="small"
             variant="outlined"
             onClick={() => handleDeleteAppointment(appointmentFromParent._id)}
-          >Cancel</Button>
+          >Cancel</button>
+          <Link className='btn btn-xs btn-warning' to={{ pathname: '/edit', state: {clickedOnAppointment: appointmentFromParent}  }}>EDIT</Link>
         </CardActions>
       </Card>
     </Grid>
