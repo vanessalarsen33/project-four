@@ -1,0 +1,10 @@
+.bookBtn {
+  color: #758B71;
+  background-color: #E4CAB0;
+  border: 1px solid #758B71;
+  text-decoration: none;
+  padding: 0 5px;
+  align-items: center;
+  display: flex;
+  height: 3vh;
+}

@@ -69,6 +69,7 @@ export default function AppointmentForm(props) {
             shrink: true,
           }}
           name="date"
+          required
         />
       </div>
       <div className="formSections">
@@ -86,6 +87,7 @@ export default function AppointmentForm(props) {
           value={formData.service}
           onChange={handleChange}
           name="service"
+          required
         >
           <MenuItem>
           </MenuItem>

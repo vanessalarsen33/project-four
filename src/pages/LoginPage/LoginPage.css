@@ -10,16 +10,19 @@
   background-color: #758B71;
   border: none;
 }
-.lfm__typing_effect_text {
-  margin-top: 27vh;
-}
-.lfm__typing_effect_cursor {
-  margin-top: 27vh;
-}
-.loginBtn {
-  padding-top: 2vh;
-}
+
 .loginTitle {
   color: #E4CAB0;
   padding-bottom: 2vh;
+}
+.loginBtn {
+  background-color: #758B71;
+  margin-top: 1vh;
+  border: 1px solid #557050;
+  color: #E4CAB0;
+;
+  padding: 2px 5px;
+}
+.form-group {
+  margin: 10px;
 }

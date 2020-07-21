@@ -1,5 +1,5 @@
 .profileBanner {
-  height: 15vh;
+  height: 20vh;
   background-color: #758B71;
 }
 
@@ -7,11 +7,31 @@
   display: flex;
   justify-content: flex-end;
   align-content: end;
-  padding-top: 11vh;
+  padding-top: 15vh;
   padding-right: 3vw;
 }
 .upcoming {
   display: flex;
   padding-top: 1vh;
   padding-left: 3vw;
+}
+
+.deleteBtn {
+  color: #758B71;
+  background-color: #E4CAB0;
+  border: 1px solid #758B71;
+  height: 3vh;
+}
+.updateBtn {
+  color: #758B71;
+  background-color: #E4CAB0;
+  border: 1px solid #758B71;
+  text-decoration: none;
+  padding: 0 5px;
+  align-items: center;
+  display: flex;
+  height: 3vh;
+}
+.appointmentCard {
+  color: #758B71;
 }

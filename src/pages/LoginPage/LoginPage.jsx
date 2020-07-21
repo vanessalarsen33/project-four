@@ -49,7 +49,7 @@ class LoginPage extends Component {
             <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
           </div>
           <div className="form-group">
-            <div className="loginBtn">
+            <div>
               <button className="loginBtn">Log In</button>
             </div>
           </div>

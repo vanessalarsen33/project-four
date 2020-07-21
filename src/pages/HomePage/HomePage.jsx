@@ -8,6 +8,7 @@ const HomePage = (props) => (
     <div className="Image">
     <Typography
     className="welcome"
+    variant="h5"
     >WELCOME TO INSPIRE WELLNESS SPA.</Typography>
     </div>
     <CardCarousel />

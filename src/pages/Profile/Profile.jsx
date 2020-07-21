@@ -10,6 +10,7 @@ function Profile({ appointmentsFromParent, handleDeleteAppointment }) {
         <div className="profileBanner">
             <Typography
             className="profileName"
+            variant="h5"
             style={{ color: '#F2E5D6' }}
             >{userService.getUser().name ? `HELLO, ${userService.getUser().name.toUpperCase()}` : ''}</Typography>
         </div>
@@ -17,7 +18,7 @@ function Profile({ appointmentsFromParent, handleDeleteAppointment }) {
                 <Typography
                  style={{ color: '#758B71' }}
                  className="upcoming"
-                >upcoming appointments</Typography>
+                >UPCOMING APPOINTMENTS</Typography>
                 {appointmentsFromParent.map(appointment => 
                     <AppointmentCard
                         key={appointment._id}

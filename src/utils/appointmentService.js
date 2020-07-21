@@ -16,7 +16,6 @@ export function getAllAppointments() {
 
 // create
 export function createAppointment(appointmentToCreate) {
-  console.log(appointmentToCreate, "APPOINTMENT OT CREATE")
     return fetch(BASE_URL, {
         method: 'POST',
         headers: {
@@ -35,7 +34,6 @@ export function deleteAppointmentAPI(appointmentIdToDelete) {
         }
     }).then(deletedAppointment => deletedAppointment.json());
 }
-
 //
 export function updateAppointmentAPI(appointmentToUpdate) {
     return fetch(`${BASE_URL}${appointmentToUpdate._id}`, {

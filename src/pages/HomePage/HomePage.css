@@ -4,13 +4,24 @@
 }
 
 .Image {
-  background-image: url("../../components/images/homepageimage.jpg");
+  /* background-image: url("../../components/Images/homepageimage.jpg");
+   */
   background-size: cover;
-  height: 30vh;
+  background-color: #758B71;
+  height: 25vh;
   background-position: bottom
   ;
 }
 .welcome {
-  color: white;
-  
+  color: #F2E5D6;
+  display: flex;
+  justify-content: flex-end;
+  align-content: end;
+  padding-top: 19vh;
+  padding-right: 3vw;
+}
+
+.react-multiple-carousel__arrow {
+    color: #758B71;
+    background-color: #758B71;
 }
