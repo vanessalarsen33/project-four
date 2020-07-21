@@ -40,6 +40,24 @@ class App extends Component {
         cost: '$50',
         time: '60 mins'
       },
+      {
+        _id: 5,
+        type: 'Manicure',
+        cost: '$50',
+        time: '60 mins'
+      },
+      {
+        _id: 6,
+        type: 'Manicure',
+        cost: '$50',
+        time: '60 mins'
+      },
+      {
+        _id: 7,
+        type: 'Manicure',
+        cost: '$50',
+        time: '60 mins'
+      },
     ],
     user: userService.getUser(),
 
@@ -72,14 +90,16 @@ class App extends Component {
       appointments: allAppointments
     }, () => this.props.history.push('/profile'));
   }
+
   async componentDidMount() {
     this.getAllAppointments();
   }
+
   handleDeleteAppointment = async idOfAppointmentToDelete => {
     await appointmentService.deleteAppointmentAPI(idOfAppointmentToDelete);
     this.setState(state => ({
       appointmentService: state.appointments.filter(appointment => appointment._id !== idOfAppointmentToDelete)
-    }), () => this.props.history.push('/profile'));
+    }, this.getAllAppointments()));
   }
 
   handleUpdateAppointment = async updatedAppointmentData => {

@@ -9,9 +9,6 @@ import { Paper } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   title: {
     fontSize: 14,
   },
@@ -26,35 +23,27 @@ function ServiceCard({ serviceFromParent }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid container
-        spacing={3}
-        direction="row" >
-        <Grid item xs={6}>
-          <Paper
-            className={classes.root}
-            variant="outlined"
-            style={{
-              backgroundColor: '#E4CAB0',
-              margin: '5%',
-              color: '#557050'
-            }}
-          >
-            <CardContent>
-              <Typography>{serviceFromParent.type}</Typography>
-              <Typography>{serviceFromParent.cost}</Typography>
-              <Typography>{serviceFromParent.time}</Typography>
-            </CardContent>
-            <CardActions>
-              <NavLink
-                className="bookBtn"
-                exact to='/appointment' 
-                >BOOK</NavLink>
-            </CardActions>
-          </Paper>
-        </Grid>
-      </Grid>
-    </div>
+      <Paper
+        className={classes.root}
+        variant="outlined"
+        style={{
+          backgroundColor: '#E4CAB0',
+          margin: '5%',
+          color: '#557050'
+        }}
+      >
+        <CardContent>
+          <Typography>{serviceFromParent.type}</Typography>
+          <Typography>{serviceFromParent.cost}</Typography>
+          <Typography>{serviceFromParent.time}</Typography>
+        </CardContent>
+        <CardActions>
+          <NavLink
+            className="bookBtn"
+            exact to='/appointment'
+          >BOOK</NavLink>
+        </CardActions>
+      </Paper>
   )
 }
 

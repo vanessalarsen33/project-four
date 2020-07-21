@@ -12,6 +12,7 @@ const HomePage = (props) => (
     >WELCOME TO INSPIRE WELLNESS SPA.</Typography>
     </div>
     <CardCarousel />
+    <div className="vistUS"></div>
   </div>
 )
 

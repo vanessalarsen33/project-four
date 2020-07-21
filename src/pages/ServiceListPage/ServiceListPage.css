@@ -8,3 +8,11 @@
   display: flex;
   height: 3vh;
 }
+/* .service {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+.serviceCards {
+  padding: 15px;
+  overflow: hidden;
+} */
