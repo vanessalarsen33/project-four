@@ -1,4 +1,4 @@
-## SPA APP
+## INSPIRE WELLNESS SPA APP
 
 ### WIREFRAME 
 [here](https://www.figma.com/file/TgsjQsDyz52iJeslJwGQqi/Untitled?node-id=0%3A1)

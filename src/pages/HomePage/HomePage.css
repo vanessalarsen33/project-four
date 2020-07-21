@@ -3,11 +3,9 @@
   height: 30%;
 }
 
-.Image {
-  /* background-image: url("../../components/Images/homepageimage.jpg");
-   */
+.image {
   background-size: cover;
-  background-color: #758B71;
+  background-color: #557050;
   height: 25vh;
   background-position: bottom
   ;
@@ -17,11 +15,23 @@
   display: flex;
   justify-content: flex-end;
   align-content: end;
-  padding-top: 19vh;
+  padding-top: 15vh;
   padding-right: 3vw;
 }
 
 .react-multiple-carousel__arrow {
     color: #758B71;
     background-color: #758B71;
+}
+
+.visitUs {
+  background-image: url("../../components/Images/homepageimage.jpg");
+  background-size: cover;
+}
+.directions {
+  text-decoration: none;
+  border: .5px solid #F2E5D6;
+  color: #F2E5D6;
+  padding: 2px 5px;
+  background-color: #557050;
 }
