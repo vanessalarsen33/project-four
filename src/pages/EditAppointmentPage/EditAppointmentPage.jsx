@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class EditAppointmentPage extends Component {
   state = {
@@ -79,12 +80,15 @@ class EditAppointmentPage extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button
-          type="submit"
-          className="saveBtn">
-          SAVE
-          </button>
-      </form>
+        <Button
+        type="submit"
+        variant="outlined"
+        style={{
+          marginTop: 15,
+        }}
+      >
+        SUBMIT</Button>
+    </form>
     )
   }
 }

@@ -50,7 +50,7 @@ export default function AppointmentForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    this.props.handleAddAppointment(formData)
+    props.handleAddAppointment(formData)
   }
 
   return (
