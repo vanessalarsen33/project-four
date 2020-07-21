@@ -24,13 +24,16 @@
     background-color: #758B71;
 }
 
-.visitUs {
+.bottomImg {
   background-image: url("../../components/Images/homepageimage.jpg");
   background-size: cover;
+  height: 30vh;
+  background-position: center;
+  background-position: bottom;
 }
 .directions {
   text-decoration: none;
-  border: .5px solid #F2E5D6;
+  border: .5px solid #557050;
   color: #F2E5D6;
   padding: 2px 5px;
   background-color: #557050;

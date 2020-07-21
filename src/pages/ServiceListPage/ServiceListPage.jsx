@@ -16,11 +16,7 @@ function ServiceListPage({ servicesFromParent }) {
 
   return (
     <>
-      <Typography
-        style={{
-          color: '#758B71',
-        }}
-      >Our services</Typography>
+    <div className="serviceImg"></div>
     <div className={classes.root}>
         <Grid
          container

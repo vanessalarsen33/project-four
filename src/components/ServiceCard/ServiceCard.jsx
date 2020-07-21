@@ -23,27 +23,30 @@ function ServiceCard({ serviceFromParent }) {
   const classes = useStyles();
 
   return (
-      <Paper
-        className={classes.root}
-        variant="outlined"
+    <Paper
+      className={classes.root}
+      style={{
+        backgroundColor: '#758B71',
+        margin: '5%',
+        color: '#E4CAB0'
+      }}
+    >
+      <CardContent>
+        <Typography>{serviceFromParent.type}</Typography>
+        <Typography>{serviceFromParent.cost}</Typography>
+        <Typography>{serviceFromParent.time}</Typography>
+      </CardContent>
+      <CardActions
         style={{
-          backgroundColor: '#E4CAB0',
-          margin: '5%',
-          color: '#557050'
+          justifyContent: 'center',
         }}
       >
-        <CardContent>
-          <Typography>{serviceFromParent.type}</Typography>
-          <Typography>{serviceFromParent.cost}</Typography>
-          <Typography>{serviceFromParent.time}</Typography>
-        </CardContent>
-        <CardActions>
-          <NavLink
-            className="bookBtn"
-            exact to='/appointment'
-          >BOOK</NavLink>
-        </CardActions>
-      </Paper>
+        <NavLink
+          className="bookBtn"
+          exact to='/appointment'
+        >BOOK</NavLink>
+      </CardActions>
+    </Paper>
   )
 }
 
