@@ -2,3 +2,9 @@
   background-color: #758B71;
   border: none;
 }
+.signupBtn {
+  background-color: #758B71;
+  margin-top: 1vh;
+  border: 1px solid #557050;
+  color: #E4CAB0;
+}

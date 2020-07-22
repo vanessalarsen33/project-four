@@ -64,7 +64,7 @@ class SignupForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default" >Sign Up</button>&nbsp;&nbsp;
+              <button className="signupBtn" >Sign Up</button>&nbsp;&nbsp;
             </div>
           </div>
         </form>
