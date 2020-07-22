@@ -9,7 +9,6 @@
   height: 3vh;
 }
 .serviceImg {
-  background-image: url("../../components/Images/homepageimage.jpg");
   background-size: cover;
   height: 10vh;
   background-position: center;
