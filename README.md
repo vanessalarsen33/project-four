@@ -18,11 +18,13 @@
 * JAVASCRIPT
 * HEROKU
 
-### ABOUT
-
-
 ### LINK
 [here](https://inspire-spa.herokuapp.com/)
+
+### ICEBOX
+* Build services out more
+* Payment
+* Google calander
 
 ### WIREFRAME 
 [here](https://www.figma.com/file/TgsjQsDyz52iJeslJwGQqi/Untitled?node-id=0%3A1)
