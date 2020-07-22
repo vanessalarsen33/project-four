@@ -1,7 +1,6 @@
 import React from 'react';
 import CardCarousel from '../../components/CardCarousel/CardCarousel';
 import './HomePage.css';
-import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 
 const HomePage = (props) => (
