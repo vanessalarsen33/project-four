@@ -18,6 +18,12 @@
 * JAVASCRIPT
 * HEROKU
 
+### ABOUT
+
+
+### LINK
+
+
 ### WIREFRAME 
 [here](https://www.figma.com/file/TgsjQsDyz52iJeslJwGQqi/Untitled?node-id=0%3A1)
 

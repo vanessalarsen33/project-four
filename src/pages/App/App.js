@@ -25,37 +25,37 @@ class App extends Component {
       {
         _id: 2,
         type: 'Hair cut',
-        cost: '$100',
+        cost: '$80',
         time: '90 mins'
       },
       {
         _id: 3,
         type: 'Pedicure',
         cost: '$50',
-        time: '60 mins'
+        time: '30 mins'
       },
       {
         _id: 4,
         type: 'Manicure',
         cost: '$50',
-        time: '60 mins'
+        time: '30 mins'
       },
       {
         _id: 5,
-        type: 'Manicure',
-        cost: '$50',
+        type: 'Hot stone massage',
+        cost: '$150',
         time: '60 mins'
       },
       {
         _id: 6,
-        type: 'Manicure',
-        cost: '$50',
+        type: 'Signature facial',
+        cost: '$90',
         time: '60 mins'
       },
       {
         _id: 7,
-        type: 'Manicure',
-        cost: '$50',
+        type: 'Reflexology',
+        cost: '$80',
         time: '60 mins'
       },
     ],
