@@ -1,6 +1,6 @@
 .profileBanner {
   height: 20vh;
-  background-color: #758B71;
+  background-color: #557050;
 }
 
 .profileName {
@@ -17,14 +17,14 @@
 }
 
 .deleteBtn {
-  color: #758B71;
-  background-color: #E4CAB0;
+  color: #E4CAB0;
+  background-color: #758B71;
   border: 1px solid #758B71;
-  height: 3vh;
+  height: 3.4vh;
 }
 .updateBtn {
-  color: #758B71;
-  background-color: #E4CAB0;
+  color: #E4CAB0;
+  background-color: #758B71;
   border: 1px solid #758B71;
   text-decoration: none;
   padding: 0 5px;

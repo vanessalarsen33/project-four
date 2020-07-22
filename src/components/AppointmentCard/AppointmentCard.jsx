@@ -51,7 +51,10 @@ function AppointmentCard({ appointmentFromParent, handleDeleteAppointment }) {
             className="deleteBtn"
             onClick={() => handleDeleteAppointment(appointmentFromParent._id)}
           >CANCEL</button>
-          <Link className='updateBtn' to={{ pathname: '/edit', state: {clickedOnAppointment: appointmentFromParent}  }}>EDIT</Link>
+          <Link className='updateBtn' 
+          to={{ pathname: '/edit',
+          state: {clickedOnAppointment: appointmentFromParent}  }}>
+          EDIT</Link>
         </CardActions>
       </Card>
     </Grid>
